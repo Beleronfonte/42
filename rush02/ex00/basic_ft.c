@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 16:28:25 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/07 20:45:35 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/04/08 16:02:59 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ void	ft_print_whole_name(int length, char *number, char *to_read)
 		if ((length -1 - i) % 3 == 1)
 			ft_tens(&number[i], to_read, to_print, i);
 		if ((length -1 - i) % 3 == 2)
-			ft_hundreds(length - i, &number[i], to_read, to_print);
+		{
+			ft_units(length - i, &number[i], to_read, to_print);
+			ft_hundreds(&number[i], to_read, to_print);
+		}
 		write(1, " ", 1);
 		i++;
 	}

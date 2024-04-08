@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:12:33 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/07 20:41:14 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:59:57 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,10 @@ void	ft_tens(char *number, char *to_read, char *to_print, int i)
 	ft_write_number_name(to_print);
 }
 
-void	ft_hundreds(int length, char *number, char *to_read, char *to_print)
+void	ft_hundreds(char *number, char *to_read, char *to_print)
 {
 	if (number[0] == '0')
 		return ;
-	ft_units(length, &number[0], to_read, to_print);
 	to_print = ft_strstr(to_read, "100");
 	ft_write_number_name(to_print);
 }
