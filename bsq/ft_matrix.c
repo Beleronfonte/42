@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:18:38 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/10 17:41:40 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:54:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_matrix_magic(char *map, char *symbol, int number)
 	int		size;
 	char	**matrix;
 
-	length = ft_line_length(map);
+	length = ft_line_len(map);
 	matrix = ft_malloc_matrix(length, number);
 	ft_fill_matrix(map, matrix);
 	size = ft_backtracker(matrix, &symbol[0], coord);
