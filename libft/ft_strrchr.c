@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 11:17:31 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/22 12:22:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/04/17 11:00:09 by ofernand          #+#    #+#             */
+/*   Updated: 2024/04/17 12:22:38 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
+//#include <string.h>
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *s, int n)
 {
-	size_t				i;
-	unsigned const char	*str1;
-	unsigned const char	*str2;
+	char	a;
+	int		i;
 
-	i = 0;
-	str1 = s1;
-	str2 = s2;
-	while (str1[i] == str2[i] && str1[i] != '\0' && i < n)
+	a = n;
+	i = ft_strlen(s);
+	if (s[i] == a)
+		return ((char *)&s[i]);
+	while (i >= 0)
 	{
-		i++;
-		if (i == n)
-			return (0);
+		if (s[i] == a)
+			return ((char *)&s[i]);
+		i--;
 	}
-	return ((int)(str1[i] - str2[i]));
+	return (NULL);
 }
 
 /*int	main(void)
 {
-	char	*test;
-	char	*ptr;
- 
-	test = "HELLO"; 
-	ptr = "HELA"; 
-	printf("%d\n",ft_memcmp(test, ptr, 4));
+	printf("%s\n", ft_strchr("En un lugar de la mancha", '6'));
+	printf("%s\n", strchr("En un lugar de la mancha", 96));
 }*/

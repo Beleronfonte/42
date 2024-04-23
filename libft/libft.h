@@ -10,7 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 int		ft_isascii(int c);
@@ -23,3 +27,5 @@ char	*ft_strchr(const char *s, int n);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_toupper(int c);
+
+#endif
