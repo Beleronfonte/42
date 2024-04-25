@@ -11,6 +11,18 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <stdio.h>
+//#include <string.h>
+
+/*static size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}*/
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -20,23 +32,28 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	i = 0;
 	dest_len = ft_strlen(dest);
-  src_len = ft_strlen(src);
+	src_len = ft_strlen(src);
 	if (size == 0)
-		return (i - 1);
-	j = 0;
-	while (src[j] != '\0')
-		j++;
-	if (size <= i)
-		return (size + j);
-	k = 0;
-	while (src[k] != '\0' && k < j)
+		return (src_len);
+	if (size <= dest_len)
+		return (src_len + size);
+	while (src[i] != '\0' && dest_len < (size - 1))
 	{
-		if (i < size -1)
-			dest[i] = src[k];
+		dest[dest_len] = src[i];
+		dest_len++;
 		i++;
-		j++;
-		k++;
 	}
-	dest[i] = '\0';
-	return (i);
+	dest[dest_len] = '\0';
+	return (dest_len);
 }
+
+/*int	main(void)
+{
+	//char	str[50] = "1234567890";
+	char	dest[50] = "1234567890";
+	char	src[] = "abcdefghijklmnopqrstuvwxyz";
+
+	printf("la funcion original da %d, y la cadena mostrada es %s\n", 
+	//y mi funcion da %d y mi cadena mostrada es %s\n, 
+	strlcat(str, src, 20), str, ft_strlcat(dest, src, 50), dest);
+}*/
