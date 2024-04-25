@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,16 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t n, size_t size)
+char	*ft_strdup(const char *str)
 {
-	void	*ptr;
+	char	*ptr;
+	int		len;
 
-	ptr = malloc(n * size);
+	len = ft_strlen(str);
+	ptr = malloc((len + 1) * sizeof(char));
 	if (ptr == NULL)
-		return (ptr);
-	ft_bzero(ptr, n * size);
+		return (NULL);
+	ft_memcpy(ptr, str, len);
+	ptr[len] = '\0';
 	return (ptr);
 }
