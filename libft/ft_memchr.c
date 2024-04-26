@@ -14,7 +14,7 @@
 //#include <stdio.h>
 //#include <string.h>
 
-char	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
 	unsigned char	a;
 	unsigned char	*s;
