@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/04/23 13:20:02 by ofernand         ###   ########.fr        #
+#    Updated: 2024/04/29 11:53:40 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ RM = rm -rf
 SOURCES = ft_atoi.c \
 	ft_bzero.c \
 	ft_isalpha.c \
+	ft_calloc.c \
 	ft_isalnum.c \
 	ft_isascii.c \
 	ft_isdigit.c \
@@ -28,10 +29,12 @@ SOURCES = ft_atoi.c \
 	ft_strchr.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
+	ft_strdup.c \
 	ft_strlen.c \
 	ft_strncmp.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
+	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c
 
