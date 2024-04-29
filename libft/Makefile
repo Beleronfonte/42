@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/04/29 11:53:40 by ofernand         ###   ########.fr        #
+#    Updated: 2024/04/29 16:38:18 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SOURCES = ft_atoi.c \
 	ft_memcpy.c \
 	ft_memmove.c \
 	ft_strchr.c \
+	ft_strjoin.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
 	ft_strdup.c \
@@ -34,6 +35,7 @@ SOURCES = ft_atoi.c \
 	ft_strncmp.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
+	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c
@@ -44,15 +46,19 @@ OBJS = $(SOURCES:.c=.o)
 
 $(NAME) : $(OBJS)
 	@ar crs $(NAME) $(OBJS)
+	@echo "objects were created"
+	@echo "everything went well"
 
 %.o : %.c
 	@cc -c $(CFLAGS) $< -o $@
 
 clean: 
-	@ $(RM) $(OBJS)
+	@$(RM) $(OBJS)
+	@echo "objects removed successfully"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
+	@echo "everything is clean now"
 
 re: fclean all
 
