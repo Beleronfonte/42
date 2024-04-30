@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:26:27 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/29 12:25:51 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:06:24 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		sub_s[i] = s[len + i];
+		sub_s[i] = s[start + i];
 		i++;
 	}
 	sub_s[i] = '\0';

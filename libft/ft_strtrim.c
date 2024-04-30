@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 15:55:16 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/29 16:30:27 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/04/30 10:51:18 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 
 	s1 = "  df Hello jkd ";
-	s2 = " k";
+	s2 = "k";
 	str = ft_strtrim(s1, s2);
 	printf("%s", str);
 }*/
