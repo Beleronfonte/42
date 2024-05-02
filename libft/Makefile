@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/02 11:47:26 by ofernand         ###   ########.fr        #
+#    Updated: 2024/05/02 12:29:39 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SOURCES = ft_atoi.c \
 	ft_strlcpy.c \
 	ft_strdup.c \
 	ft_strlen.c \
+	ft_strmapi.c \
 	ft_strncmp.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
