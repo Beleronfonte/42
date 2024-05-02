@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/02 12:41:02 by ofernand         ###   ########.fr        #
+#    Updated: 2024/05/02 13:07:20 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SOURCES = ft_atoi.c \
 	ft_memset.c \
 	ft_memcpy.c \
 	ft_memmove.c \
+	ft_putchar_fd.c \
+	ft_putendl_fd.c \
+	ft_putstr_fd.c \
 	ft_split.c \
 	ft_strchr.c \
 	ft_strjoin.c \
