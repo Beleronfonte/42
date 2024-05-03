@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/02 14:18:52 by ofernand         ###   ########.fr        #
+#    Updated: 2024/05/03 11:43:26 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SOURCES = ft_atoi.c	ft_bzero.c ft_isalpha.c	ft_calloc.c	ft_isalnum.c \
 	ft_strlcat.c ft_strlcpy.c ft_strdup.c ft_striteri.c ft_strlen.c \
 	ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
 	ft_substr.c ft_tolower.c ft_toupper.c
-BONUS_SOURCES =
+BONUS_SOURCES = ft_lstnew.c
 
 all: $(NAME)
 
@@ -40,7 +40,7 @@ bonus: $(OBJS) $(BONUS_OBJS)
 	@ ar crs $(NAME) $^
 
 clean: 
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(BONUS_OBJS)
 	@echo "objects removed successfully"
 
 fclean: clean
@@ -49,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
