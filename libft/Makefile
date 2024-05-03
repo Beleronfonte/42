@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/03 12:37:53 by ofernand         ###   ########.fr        #
+#    Updated: 2024/05/03 13:45:52 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SOURCES = ft_atoi.c	ft_bzero.c ft_isalpha.c	ft_calloc.c	ft_isalnum.c \
 	ft_strlcat.c ft_strlcpy.c ft_strdup.c ft_striteri.c ft_strlen.c \
 	ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c \
 	ft_substr.c ft_tolower.c ft_toupper.c
-BONUS_SOURCES = ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
+BONUS_SOURCES = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
+	ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c \
+	ft_lstsize.c
 
 all: $(NAME)
 
