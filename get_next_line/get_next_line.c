@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:29 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/06 13:15:59 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/20 10:38:59 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 char	*get_next_line(int fd)
 {
-	char	*new_line;
-	char	*new_char;
-	int		i;
+	char		*new_line;
+	static char	new_char[1];
+	int			i;
 
 	i = 0;
-	new_line = (char *)malloc(sizeof(char) * BUFFER_SIZE);
-	new_char = (char *)malloc(sizeof(char));
-	while (i < BUFFER_SIZE && new_char[0] != '\n')
+	new_line = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (new_char[0] == '\n')
+		new_char[0] = 1;
+	while (i <= BUFFER_SIZE && new_char[0] != '\n')
 	{
 		read(fd, new_char, 1);
 		new_line[i] = new_char[0];
+		if (new_char[0] == '\0')
+			break;
 		i++;
 	}
-	//free(new_char);
+	if (new_char[0] == '\0' && i == 0)
+		return (NULL);
+	new_line[i] = '\0';
 	return (new_line);
 }
 
