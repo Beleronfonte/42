@@ -6,14 +6,14 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 11:48:15 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/06 12:01:49 by ofernand         ###   ########.fr        #
+#    Updated: 2024/05/29 10:33:53 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = get_next_line.a
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SOURCES = get_next_line.c get_next_line_untils.c 
+SOURCES = get_next_line.c get_next_line_utils.c 
 BONUS_SOURCES = 
 
 all: $(NAME)
