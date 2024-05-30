@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/30 13:35:45 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:16:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (len);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	len1;
@@ -81,6 +81,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(str, s1, len1 + 1);
 	ft_strlcat(str, s2, len1 + len2 + 1);
+	free(s1);
 	return (str);
 }
 
