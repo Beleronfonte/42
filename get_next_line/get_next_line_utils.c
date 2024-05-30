@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/29 13:29:24 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:35:45 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
+	if (!str)
+		return(0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -64,6 +66,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		dest[i] = '\0';
 	}
 	return (len);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -86,6 +89,8 @@ char	*ft_strchr(const char *s, int n)
 	char	a;
 
 	a = n;
+	if (!s)
+		return (0);
 	while (*s != '\0')
 	{
 		if (*s == a)
