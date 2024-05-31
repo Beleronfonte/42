@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:29 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/30 14:11:01 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:31:23 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ static char	*ft_keep_surplus(char *buffer)
 		return (NULL);
 	while (buffer[i] != '\n')
 		i++;
-	new_buffer = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i));
+	new_buffer = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
 	if (!new_buffer)
 	{
 		free(buffer);
 		return (NULL);
 	}
-	ft_strlcpy(new_buffer, &buffer[i + 1], ft_strlen(buffer) - i);
+	ft_strlcpy(new_buffer, &buffer[i + 1], ft_strlen(buffer) - i + 1);
 	free(buffer);
 	return (new_buffer);
 }
@@ -73,7 +73,7 @@ static char	*ft_get_buffer(int fd, char *buffer)
 		tmp_str[byte_ctrl] = '\0';
 		buffer = ft_strjoin(buffer, tmp_str);
 	}
-	//free(tmp_str);
+	free(tmp_str);
 	return (buffer);
 }
 

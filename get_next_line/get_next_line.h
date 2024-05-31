@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/30 14:15:43 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:22:26 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 #endif
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlen(char *str);
+size_t	ft_strlcat(char *dest, char *src, size_t size);
+size_t	ft_strlcpy(char *dest, char *src, size_t size);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strchr(const char *s, int n);
+char	*ft_strchr(char *s, int n);
 #endif

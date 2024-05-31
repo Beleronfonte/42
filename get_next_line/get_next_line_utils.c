@@ -6,25 +6,25 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/30 14:16:41 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:21:47 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t	i;
 
 	if (!str)
 		return(0);
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	i;
 	size_t	dest_len;
@@ -47,7 +47,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (dest_len);
 }
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	len;
 	size_t	i;	
@@ -77,7 +77,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s1, len1 + 1);
 	ft_strlcat(str, s2, len1 + len2 + 1);
@@ -85,7 +85,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (str);
 }
 
-char	*ft_strchr(const char *s, int n)
+char	*ft_strchr(char *s, int n)
 {
 	char	a;
 
