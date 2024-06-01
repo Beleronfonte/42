@@ -6,29 +6,31 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:29 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/31 16:31:23 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/01 13:02:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char *ft_trim_line(char *buffer)
+static char	*ft_trim_line(char *buffer)
 {
 	char	*line;
 	int		i;
 
 	i = 0;
-	if (!buffer)
+	if (!buffer[i])
 		return (NULL);
 	while (buffer[i] != '\n' && buffer[i])
 		i++;
-	line = (char *)malloc(sizeof(char) * (i + 2));
-	if (!line)
+	line = ft_calloc(sizeof(char), i + 2);
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
 	{
-		free(buffer);
-		return (NULL);
+		line[i] = buffer[i];
+		i++;
 	}
-	ft_strlcpy(line, buffer, i + 2);
+	if (buffer[i] == '\n')
+		line[i] = '\n';
 	return (line);
 }
 
@@ -36,19 +38,26 @@ static char	*ft_keep_surplus(char *buffer)
 {
 	char	*new_buffer;
 	int		i;
+	int		j;
 
 	i = 0;
-	if (!buffer)
-		return (NULL);
-	while (buffer[i] != '\n')
+	while (buffer[i] != '\n' && buffer[i])
 		i++;
-	new_buffer = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
-	if (!new_buffer)
+	if (!buffer[i])
 	{
 		free(buffer);
 		return (NULL);
 	}
-	ft_strlcpy(new_buffer, &buffer[i + 1], ft_strlen(buffer) - i + 1);
+	new_buffer = ft_calloc(sizeof(char), ft_strlen(buffer) - i + 1);
+	i++;
+	j = 0;
+	while (buffer[i])
+	{
+		new_buffer[j] = buffer[i];
+		i++;
+		j++;
+	}
+	new_buffer[j] = '\0';
 	free(buffer);
 	return (new_buffer);
 }
@@ -58,10 +67,9 @@ static char	*ft_get_buffer(int fd, char *buffer)
 	char		*tmp_str;
 	int			byte_ctrl;
 
-	tmp_str = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (!tmp_str)
-		return (NULL);
-	while (!ft_strchr(buffer, '\n') && byte_ctrl != 0)
+	tmp_str = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	byte_ctrl = 1;
+	while (ft_strchr(buffer, '\n') == NULL && byte_ctrl != 0)
 	{
 		byte_ctrl = read(fd, tmp_str, BUFFER_SIZE);
 		if (byte_ctrl == -1)
@@ -98,7 +106,12 @@ int	main(void)
 	char	*to_print;
 
 	fd = open("./numbers.dict", O_RDONLY);
-	to_print = get_next_line(fd);
-	printf("%s", to_print);
+	to_print = " ";
+	while (to_print != NULL)
+	{
+		to_print = get_next_line(fd);
+		if (to_print != NULL)
+			printf("%s", to_print);
+	}
 	close(fd);
 }

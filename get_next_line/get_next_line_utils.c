@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/31 16:21:47 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/01 12:48:46 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,55 +17,28 @@ size_t	ft_strlen(char *str)
 	size_t	i;
 
 	if (!str)
-		return(0);
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 		i++;
 	return (i);
 }
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+char	*ft_calloc(size_t n, size_t size)
 {
+	char	*ptr;
 	size_t	i;
-	size_t	dest_len;
-	size_t	src_len;
 
+	ptr = (char *)malloc(n * size);
+	if (!ptr)
+		return (0);
 	i = 0;
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	if (size <= dest_len)
-		return (src_len + size);
-	while (src[i] != '\0' && dest_len < (size - 1))
+	while (i < n * size)
 	{
-		dest[dest_len] = src[i];
-		dest_len++;
+		ptr[i] = 0;
 		i++;
 	}
-	dest[dest_len] = '\0';
-	return (dest_len);
-}
-
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
-{
-	size_t	len;
-	size_t	i;	
-
-	if (!dest || !src)
-		return (0);
-	len = ft_strlen(src);
-	if (len != 0)
-	{
-		i = 0;
-		while (src[i] != '\0' && i < (size - 1))
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (len);
+	return (ptr);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -73,14 +46,26 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*str;
 	size_t	len1;
 	size_t	len2;
+	size_t	i;
+	size_t	j;
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
-	if (!str)
+	str = ft_calloc(sizeof(char), len1 + len2 + 1);
+	if (str == NULL)
 		return (NULL);
-	ft_strlcpy(str, s1, len1 + 1);
-	ft_strlcat(str, s2, len1 + len2 + 1);
+	i = 0;
+	while (i < len1)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (j < len2)
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
 	free(s1);
 	return (str);
 }
@@ -91,7 +76,7 @@ char	*ft_strchr(char *s, int n)
 
 	a = n;
 	if (!s)
-		return (0);
+		return (NULL);
 	while (*s != '\0')
 	{
 		if (*s == a)
