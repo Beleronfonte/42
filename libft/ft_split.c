@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 10:23:40 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/22 11:00:55 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/22 11:14:55 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ static void	free_all(char **ptr)
 	int	i;
 
 	i = 0;
-	while (ptr[i])
+	while (ptr[i] != NULL)
+	{
 		free(ptr[i]);
+		i++;
+	}
 	free(ptr);
 }
 
@@ -71,7 +74,10 @@ static void	split_str(char **ptr, const char *str, char c, int start)
 		{
 			ptr[word] = get_word(str, start, i + 1);
 			if (!ptr[word])
-				return (free_all(ptr));
+			{
+				free_all(ptr);
+				return ;
+			}
 			while (str[i + 1] && str[i + 1] == c)
 				i++;
 			start = i + 1;
