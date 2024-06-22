@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 10:23:40 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/22 10:32:54 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/22 11:00:55 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static void	split_str(char **ptr, const char *str, char c, int start)
 			while (str[i + 1] && str[i + 1] == c)
 				i++;
 			start = i + 1;
+			word++;
 		}
 		i++;
 	}
