@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 10:23:40 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/22 11:14:55 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/22 11:23:36 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,21 @@ static char	*get_word(const char *str, int start, int stop)
 	return (word);
 }
 
-static void	free_all(char **ptr)
+static char	**free_all(char **ptr)
 {
 	int	i;
 
 	i = 0;
-	while (ptr[i] != NULL)
+	while (ptr[i])
 	{
 		free(ptr[i]);
 		i++;
 	}
 	free(ptr);
+	return (NULL);
 }
 
-static void	split_str(char **ptr, const char *str, char c, int start)
+static char	**split_str(char **ptr, const char *str, char c, int start)
 {
 	int	word;
 	int	i;
@@ -74,10 +75,7 @@ static void	split_str(char **ptr, const char *str, char c, int start)
 		{
 			ptr[word] = get_word(str, start, i + 1);
 			if (!ptr[word])
-			{
-				free_all(ptr);
-				return ;
-			}
+				return (free_all(ptr));
 			while (str[i + 1] && str[i + 1] == c)
 				i++;
 			start = i + 1;
@@ -86,6 +84,7 @@ static void	split_str(char **ptr, const char *str, char c, int start)
 		i++;
 	}
 	ptr[word] = NULL;
+	return (ptr);
 }
 
 char	**ft_split(const char *str, char c)
@@ -99,6 +98,6 @@ char	**ft_split(const char *str, char c)
 	start = 0;
 	while (str[start] && str[start] == c)
 		start++;
-	split_str(ptr, str, c, start);
+	ptr = split_str(ptr, str, c, start);
 	return (ptr);
 }
