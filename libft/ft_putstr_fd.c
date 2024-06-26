@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 12:50:57 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/02 12:59:22 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:25:21 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:25:27 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

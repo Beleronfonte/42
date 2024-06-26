@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/05/03 13:45:52 by ofernand         ###   ########.fr        #
+#    Updated: 2024/06/18 18:39:54 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS = $(SOURCES:.c=.o)
 BONUS_OBJS = $(BONUS_SOURCES:.c=.o)
 
 $(NAME) : $(OBJS)
-	@ar crs $(NAME) $(OBJS)
+	@ ar crs $(NAME) $^
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 

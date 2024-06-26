@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 12:03:44 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/02 12:30:09 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:28:25 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:28:32 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

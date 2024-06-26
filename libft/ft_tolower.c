@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 16:17:31 by ofernand          #+#    #+#             */
-/*   Updated: 2024/03/26 16:22:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:29:46 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:29:49 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

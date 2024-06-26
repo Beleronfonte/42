@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:17:31 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/18 12:22:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:24:35 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:24:44 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include <stdio.h>
 
 void	*ft_memset(void *str, int c, size_t n)
 {
@@ -27,14 +26,3 @@ void	*ft_memset(void *str, int c, size_t n)
 	}
 	return (str);
 }
-
-/*int	main(void)
-{
-  char  test[21];
-  char  *ptr;
-  
-  ptr = (char *)ft_memset(test, 'a', 20);
-  printf("%s\n", ptr);
-  ft_memset(test, 'b', 10);
-  printf("%s\n", test);
-}*/

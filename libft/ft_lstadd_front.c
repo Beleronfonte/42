@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 11:47:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/03 11:55:43 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:13:42 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:14:07 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

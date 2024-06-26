@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 12:17:31 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/19 13:22:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:24:20 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:24:29 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		ft_memcpy(dest, src, n);
 	return (dest);
 }
-
-/*int	main(void)
-{
-	char	*test;
-	char	*ptr;
- 
-	test = malloc(sizeof (char) * 6); 
-	ptr = "hello"; 
-	ft_memcpy(test, ptr, 2);
-	printf("%s\n", test);
-}*/

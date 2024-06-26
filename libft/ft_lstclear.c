@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 12:55:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/03 13:11:08 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:15:32 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:16:14 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

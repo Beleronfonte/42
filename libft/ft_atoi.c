@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 13:23:24 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/18 13:47:35 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 17:47:17 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 17:47:43 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 11:00:09 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/17 12:22:38 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:19:33 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:20:02 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include <stdio.h>
-//#include <string.h>
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
@@ -31,9 +29,3 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*int	main(void)
-{
-	printf("%s\n", ft_strchr("En un lugar de la mancha", '6'));
-	printf("%s\n", strchr("En un lugar de la mancha", 96));
-}*/

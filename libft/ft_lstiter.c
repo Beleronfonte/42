@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 13:11:45 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/03 13:17:20 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:16:38 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:16:54 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

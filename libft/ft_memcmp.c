@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 11:17:31 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/22 12:22:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:23:34 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/26 17:55:31 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -22,21 +21,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	str1 = s1;
 	str2 = s2;
-	while (str1[i] == str2[i] && str1[i] != '\0' && i < n)
+	while (i < n)
 	{
+		if (str1[i] != str2[i])
+			return ((int)(str1[i] - str2[i]));
 		i++;
-		if (i == n)
-			return (0);
 	}
-	return ((int)(str1[i] - str2[i]));
+	return (0);
 }
-
-/*int	main(void)
-{
-	char	*test;
-	char	*ptr;
- 
-	test = "HELLO"; 
-	ptr = "HELA"; 
-	printf("%d\n",ft_memcmp(test, ptr, 4));
-}*/

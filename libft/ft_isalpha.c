@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 11:11:42 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/18 12:22:38 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:04:38 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:04:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

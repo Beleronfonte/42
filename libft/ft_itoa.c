@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 10:42:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/02 11:45:24 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:07:12 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:08:39 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
 
 static int	len_num(long int n)
 {
@@ -61,13 +60,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/*int	main(void)
-{
-	int		i;
-	char	*str;
-
-	i = 2828181;
-	str = ft_itoa(i);
-	printf("%s", str);
-}*/

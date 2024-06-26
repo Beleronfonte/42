@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 15:29:36 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/25 15:32:53 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:28:18 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:28:21 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

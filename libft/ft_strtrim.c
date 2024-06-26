@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 15:55:16 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/30 10:51:18 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:29:16 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:29:31 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -33,15 +32,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(str, &s1[start], end - start + 1);
 	return (str);
 }
-
-/*int	main(void)
-{
-	char	*s1;
-	char	*s2;
-	char	*str;
-
-	s1 = "  df Hello jkd ";
-	s2 = "k";
-	str = ft_strtrim(s1, s2);
-	printf("%s", str);
-}*/

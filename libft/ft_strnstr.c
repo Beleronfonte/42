@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 11:00:09 by ofernand          #+#    #+#             */
-/*   Updated: 2024/04/17 12:22:38 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:28:47 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:28:56 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -33,8 +32,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-/*int	main(void)
-{
-	printf("%s\n", ft_strnstr("En un lugar de la mancha", "lugar", 14));
-}*/

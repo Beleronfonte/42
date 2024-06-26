@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 12:33:40 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/02 12:42:09 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:26:54 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:26:57 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

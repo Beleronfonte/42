@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 12:43:54 by ofernand          #+#    #+#             */
-/*   Updated: 2024/05/03 12:57:04 by ofernand         ###   ########.fr       */
+/*   Created: 2024/06/18 18:16:22 by ofernand          #+#    #+#             */
+/*   Updated: 2024/06/18 18:16:29 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
