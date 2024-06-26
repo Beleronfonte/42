@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:29 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/01 13:02:41 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:34:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,20 +98,4 @@ char	*get_next_line(int fd)
 	new_line = ft_trim_line(buffer);
 	buffer = ft_keep_surplus(buffer);
 	return (new_line);
-}
-
-int	main(void)
-{
-	int		fd;
-	char	*to_print;
-
-	fd = open("./numbers.dict", O_RDONLY);
-	to_print = " ";
-	while (to_print != NULL)
-	{
-		to_print = get_next_line(fd);
-		if (to_print != NULL)
-			printf("%s", to_print);
-	}
-	close(fd);
 }
