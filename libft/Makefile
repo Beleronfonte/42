@@ -35,7 +35,7 @@ $(NAME) : $(OBJS)
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 
-%.o : %.c
+%.o : %.c libft.h
 	@cc -c $(CFLAGS) $< -o $@
 
 bonus: $(BONUS_OBJS)
