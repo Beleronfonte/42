@@ -35,7 +35,7 @@ $(NAME) : $(OBJS)
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 
-%.o : %.c libft.h
+%.o : %.c libft.h Makefile
 	@cc -c $(CFLAGS) $< -o $@
 
 bonus: $(BONUS_OBJS)
