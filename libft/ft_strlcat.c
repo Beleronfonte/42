@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:27:15 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 19:52:02 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:02:59 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	src_len;
 	size_t	total_len;
 
-	if (!dest || !src)
-		return (0);
 	i = 0;
 	dest_len = ft_strlen(dest);
 	src_len = ft_strlen(src);

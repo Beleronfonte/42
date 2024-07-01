@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:28:47 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 18:28:56 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:03:29 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!big || !little)
-		return (NULL);
 	j = 0;
 	if (little[0] == '\0')
 		return ((char *)big);

@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:24:20 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 18:24:29 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:17:02 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL)
 		return (NULL);
 	if (src < dest)
 	{

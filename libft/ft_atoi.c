@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 17:47:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 17:47:43 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:05:15 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	ft_atoi(const char *str)
 	int	number;
 	int	sign;
 
-	if (!str)
-		return (0);
 	i = 0;
 	sign = 1;
 	while (str[i] != '\0' && ((str[i] > 8 && str[i] < 14) || str[i] == 32))

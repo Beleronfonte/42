@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:24:02 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 18:24:14 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:17:54 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t			i;
 
-	if (src == NULL || dest == NULL)
+	if (src == NULL && dest == NULL)
 		return (NULL);
 	i = 0;
 	while (i < n)

@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 18:29:03 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/18 18:29:10 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:03:43 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strrchr(const char *s, int n)
 	char	a;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	a = n;
 	i = ft_strlen(s);
 	if (s[i] == a)
