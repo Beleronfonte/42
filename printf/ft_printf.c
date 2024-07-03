@@ -25,9 +25,13 @@ int	ft_printf(char const *str, ...)
 			str++;
 			if (*str == 'c' || *str == 's')
 				ft_putstr(va_arg(args, char *));
-			/*else if (*str == 'd' || *str == 'i' || *str == 'u')
+			else if (*str == 'i')
+				ft_itoa_for_i(va_arg(args, int));
+		//	else if (*str == 'd')
+		//		ft_itoa_for_d(va_arg(args, int));
+			//se if (*str == 'u')
 				//imprimir base 10
-			else if (*str == 'p' || *str == 'x' || *str == 'X')
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////else if (*str == 'p' || *str == 'x' || *str == 'X')
 				//imprimir base 16*/
 			else if (*str == '%')
 				ft_putchar(*str);

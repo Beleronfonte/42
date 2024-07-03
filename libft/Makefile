@@ -31,15 +31,15 @@ OBJS = $(SOURCES:.c=.o)
 BONUS_OBJS = $(BONUS_SOURCES:.c=.o)
 
 $(NAME) : $(OBJS)
-	@ ar crs $(NAME) $^
+	@ar crs $(NAME) $^
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 
 %.o : %.c libft.h
-	@cc -c $(CFLAGS) $< -o $@
+	gcc -c $(CFLAGS) $< -o $@
 
-bonus: $(BONUS_OBJS)
-	@ ar crs $(NAME) $^
+bonus: $(BONUS_OBJS) $(OBJS)
+	@ar crs $(NAME) $^
 	@echo "bonus objects were created"
 	@echo "bonus functions added to libft.a"
 

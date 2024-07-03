@@ -16,8 +16,9 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 
-int	ft_printf(char const *, ...);
+int		ft_printf(char const *, ...);
 void	ft_putchar(char c);
-void ft_putstr(char *s);
-
+void	ft_putstr(char *s);
+void	ft_itoa_for_i(int n);
+char	*ft_malloc(int n, int size);
 #endif
