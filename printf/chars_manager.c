@@ -28,6 +28,23 @@ void ft_putstr(char *s)
 	}
 }
 
+char	*ft_malloc(int n, int size)
+{
+	char	*ptr;
+	int		i;
+
+	ptr = malloc(n * size);
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (ptr);
+}
+
 static int	len_num(long int n)
 {
 	int	len;
@@ -76,19 +93,32 @@ void	ft_itoa_for_i(int n)
 	free(str);
 }
 
-char	*ft_malloc(int n, int size)
+void	ft_itoa_for_d(float n)
 {
-	char	*ptr;
-	int		i;
+	char		*str;
+	int			len;
+	long int	num;
 
-	ptr = malloc(n * size);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
+	num = n;
+	len = len_num(num);
+	str = ft_malloc(sizeof(char), len + 1);
+	if (!str)
+		return ;
+	if (num == 0)
+		str[0] = '0';
+	if (num < 0)
 	{
-		ptr[i] = '\0';
-		i++;
+		str[0] = '-';
+		num = -num;
 	}
-	return (ptr);
+	while (num > 0)
+	{
+		str[len - 1] = (num % 10) + '0';
+		len--;
+		num = num / 10;
+	}
+	ft_putstr(str);
+	free(str);
 }
+
+
