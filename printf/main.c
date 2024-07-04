@@ -3,6 +3,6 @@
 
 int	main(void)
 {
-	ft_printf("probando a decir %s. %%. %i.", "HOLA MUNDO", 99997);
-	printf("probando a decir %s, %i", "HOLA MUNDO", 99997);
+	ft_printf("probando a decir %u, %u, %u.", 999999997, -45, 0);
+	printf("probando a decir %u, %u, %u", 999999997, -45, 0);
 }

@@ -13,12 +13,15 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
+# include <stdlib.h>
+# include <stddef.h>
 # include <stdarg.h>
+# include <unistd.h>
 
 int		ft_printf(char const *, ...);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_itoa_for_i(int n);
-char	*ft_malloc(int n, int size);
+char	*ft_calloc(int n, int size);
+void	ft_utoa(unsigned int n);
 #endif

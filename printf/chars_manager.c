@@ -28,7 +28,7 @@ void ft_putstr(char *s)
 	}
 }
 
-char	*ft_malloc(int n, int size)
+char	*ft_calloc(int n, int size)
 {
 	char	*ptr;
 	int		i;
@@ -73,7 +73,7 @@ void	ft_itoa_for_i(int n)
 
 	num = n;
 	len = len_num(num);
-	str = ft_malloc(sizeof(char), len + 1);
+	str = ft_calloc(sizeof(char), len + 1);
 	if (!str)
 		return ;
 	if (num == 0)
@@ -93,32 +93,23 @@ void	ft_itoa_for_i(int n)
 	free(str);
 }
 
-void	ft_itoa_for_d(float n)
+void	ft_utoa(unsigned int n)
 {
 	char		*str;
 	int			len;
-	long int	num;
 
-	num = n;
-	len = len_num(num);
-	str = ft_malloc(sizeof(char), len + 1);
+	len = len_num(n);
+	str = ft_calloc(sizeof(char), len + 1);
 	if (!str)
 		return ;
-	if (num == 0)
+	if (n == 0)
 		str[0] = '0';
-	if (num < 0)
+	while (n > 0)
 	{
-		str[0] = '-';
-		num = -num;
-	}
-	while (num > 0)
-	{
-		str[len - 1] = (num % 10) + '0';
+		str[len - 1] = (n % 10) + '0';
 		len--;
-		num = num / 10;
+		n = n / 10;
 	}
 	ft_putstr(str);
 	free(str);
 }
-
-
