@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:46:45 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/03 12:37:40 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:58:55 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int		ft_printf(char const *, ...);
+int		ft_printf(char const *str, ...);
 int		print_and_count(const char *str, va_list args);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);

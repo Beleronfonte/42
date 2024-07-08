@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/06/18 18:39:54 by ofernand         ###   ########.fr        #
+#    Updated: 2024/07/08 16:50:16 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,21 +35,11 @@ $(NAME) : $(OBJS)
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 
-<<<<<<< HEAD
 %.o : %.c libft.h Makefile
 	gcc -c $(CFLAGS) $< -o $@
 
 bonus: $(BONUS_OBJS)
 	@ar crs $(NAME) $^
-=======
-%.o : %.c libft.h
-	gcc -c $(CFLAGS) $< -o $@
-
-bonus: $(BONUS_OBJS) $(OBJS)
-	@ar crs $(NAME) $^
-	@echo "bonus objects were created"
-	@echo "bonus functions added to libft.a"
->>>>>>> curro
 
 clean: 
 	@$(RM) $(OBJS) $(BONUS_OBJS)
