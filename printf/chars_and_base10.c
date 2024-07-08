@@ -12,12 +12,13 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void ft_putstr(char *s)
+int ft_putstr(char *s)
 {
 	int	i;
 	i = 0;
@@ -26,6 +27,7 @@ void ft_putstr(char *s)
 		ft_putchar(s[i]);
 		i++;
 	}
+	return (i);
 }
 
 char	*ft_calloc(int n, int size)
@@ -65,7 +67,7 @@ static int	len_num(long int n)
 	return (len);
 }
 
-void	ft_itoa_for_i(int n)
+int	ft_itoa_for_i(int n)
 {
 	char		*str;
 	int			len;
@@ -75,7 +77,7 @@ void	ft_itoa_for_i(int n)
 	len = len_num(num);
 	str = ft_calloc(sizeof(char), len + 1);
 	if (!str)
-		return ;
+		return (-1);
 	if (num == 0)
 		str[0] = '0';
 	if (num < 0)
@@ -89,19 +91,21 @@ void	ft_itoa_for_i(int n)
 		len--;
 		num = num / 10;
 	}
-	ft_putstr(str);
+	len = ft_putstr(str);
 	free(str);
+	return (len);
 }
 
-void	ft_utoa(unsigned int n)
+int	ft_utoa(unsigned int n)
 {
-	char		*str;
-	int			len;
+	char	*str;
+	int		len;
+	int		count;
 
 	len = len_num(n);
 	str = ft_calloc(sizeof(char), len + 1);
 	if (!str)
-		return ;
+		return (-1);
 	if (n == 0)
 		str[0] = '0';
 	while (n > 0)
@@ -110,6 +114,7 @@ void	ft_utoa(unsigned int n)
 		len--;
 		n = n / 10;
 	}
-	ft_putstr(str);
+	count = ft_putstr(str);
 	free(str);
+	return (count);
 }

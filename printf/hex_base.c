@@ -27,48 +27,35 @@ static int	len_hex(long int n)
 	return (len);
 }
 
-
-void	ft_utoa(unsigned int n)
-{
-	char		*str;
-	int			len;
-
-	len = len_num(n);
-	str = ft_calloc(sizeof(char), len + 1);
-	if (!str)
-		return ;
-	if (n == 0)
-		str[0] = '0';
-	while (n > 0)
-	{
-		str[len - 1] = (n % 10) + '0';
-		len--;
-		n = n / 10;
-	}
-	ft_putstr(str);
-	free(str);
-}
-
-void ft_ptr_dir(void *ptr)
-{
-
-}
-
-int	ft_itohex(unsigned int n, char *base)
+int	ft_ltohex(unsigned long n, char *base)
 {
 	int				len;
 	char			*str;
 
 	len = len_hex(n);
-	str = calloc(sizeof(char), len + 1);
+	str = ft_calloc(sizeof(char), len + 1);
 	if (!str)
-		return ;
-	while (n)
+		return (-1);
+	if (n == 0)
+		str[0] = '0';
+	while (n > 0)
 	{
 		str[len - 1] = base[n % 16];
-		if (len == 0)
-			str[len] = base[n / 16];
+		len--;
 		n = n / 16;
 	}
-	return (print_and_free(str));
+	len = ft_putstr(str);
+	free(str);
+	return (len);
+}
+
+int ft_ptr_dir(void *ptr)
+{
+	int	count;
+
+	if (!ptr)
+		return (-1);
+	ft_putstr("0x");	
+	count = ft_ltohex((unsigned long) ptr, "0123456789abcdef");
+	return (count + 2);
 }

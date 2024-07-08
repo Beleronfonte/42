@@ -3,6 +3,13 @@
 
 int	main(void)
 {
-	ft_printf("probando a decir %u, %u, %u.", 999999997, -45, 0);
-	printf("probando a decir %u, %u, %u", 999999997, -45, 0);
+	int	i;
+	char a;
+	void *ptr = &i;
+	int	*qtr = &i;
+	char *otr = &a;
+
+	i = 4;
+	ft_printf("probando a decir %p, %p, %p.", ptr, qtr, otr);
+	printf("probando a decir %p, %p, %p", ptr, qtr, otr);
 }
