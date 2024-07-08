@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 12:22:51 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/03 12:37:54 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:37:58 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,30 @@ int	ft_ltohex(unsigned long n, char *base)
 	return (len);
 }
 
-int ft_ptr_dir(void *ptr)
+int	ft_ptr_dir(void *ptr)
 {
 	int	count;
 
 	if (!ptr)
 		return (-1);
-	ft_putstr("0x");	
+	ft_putstr("0x");
 	count = ft_ltohex((unsigned long) ptr, "0123456789abcdef");
 	return (count + 2);
+}
+
+char	*ft_calloc(int n, int size)
+{
+	char	*ptr;
+	int		i;
+
+	ptr = malloc(n * size);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	return (ptr);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chars_manager.c                                    :+:      :+:    :+:   */
+/*   chars_and_base10.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:51 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/03 12:37:54 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:35:05 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-int ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	int	i;
+
 	i = 0;
 	while (s[i])
 	{
@@ -28,23 +29,6 @@ int ft_putstr(char *s)
 		i++;
 	}
 	return (i);
-}
-
-char	*ft_calloc(int n, int size)
-{
-	char	*ptr;
-	int		i;
-
-	ptr = malloc(n * size);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
-	return (ptr);
 }
 
 static int	len_num(long int n)

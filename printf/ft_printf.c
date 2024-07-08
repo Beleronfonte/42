@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:40:08 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/03 12:49:06 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:36:25 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_and_count(const char *str, va_list args)
 {
-	int count;
+	int	count;
 
 	if (*str == '%')
 	{
@@ -42,9 +42,9 @@ int	print_and_count(const char *str, va_list args)
 int	ft_printf(char const *str, ...)
 {
 	va_list	args;
-	int	n_output;
-	int count;
-	int i;
+	int		n_output;
+	int		count;
+	int		i;
 
 	va_start(args, str);
 	n_output = 0;

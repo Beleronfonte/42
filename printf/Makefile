@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/06/03 11:39:44 by ofernand         ###   ########.fr        #
+#    Updated: 2024/07/08 16:29:02 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(SOURCES:.c=.o)
 $(NAME) : $(OBJS)
 	ar crs $(NAME) $^
 
-%.o : %.c libft.h Makefile
+%.o : %.c ft_printf.h Makefile
 	gcc -c $(CFLAGS) $< -o $@
 
 clean: 
