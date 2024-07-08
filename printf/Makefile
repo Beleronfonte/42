@@ -23,25 +23,19 @@ OBJS = $(SOURCES:.c=.o)
 BONUS_OBJS = $(BONUS_SOURCES:.c=.o)
 
 $(NAME) : $(OBJS)
-	@ar crs $(NAME) $(OBJS)
-	@echo "objects were created"
-	@echo "$(NAME) created successfully"
+	ar crs $(NAME) $(OBJS)
 
 %.o : %.c
-	@cc -c $(CFLAGS) $< -o $@
+	cc -c $(CFLAGS) $< -o $@
 
 bonus: $(BONUS_OBJS)
-	@ ar crs $(NAME) $^
-	@echo "bonus objects were created"
-	@echo "bonus functions added to $(NAME)"
+	ar crs $(NAME) $^
 
 clean: 
-	@$(RM) $(OBJS) $(BONUS_OBJS)
-	@echo "objects removed"
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "everything is clean now"
+	$(RM) $(NAME)
 
 re: fclean all
 
