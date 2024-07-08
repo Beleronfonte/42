@@ -13,23 +13,17 @@
 NAME = libftprint.a
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SOURCES = 
-BONUS_SOURCES = 
+SOURCES = chars_and_base10.c ft_printf.c hex_base.c 
 
 all: $(NAME)
 
 OBJS = $(SOURCES:.c=.o)
 
-BONUS_OBJS = $(BONUS_SOURCES:.c=.o)
-
 $(NAME) : $(OBJS)
-	ar crs $(NAME) $(OBJS)
-
-%.o : %.c
-	cc -c $(CFLAGS) $< -o $@
-
-bonus: $(BONUS_OBJS)
 	ar crs $(NAME) $^
+
+%.o : %.c libft.h Makefile
+	gcc -c $(CFLAGS) $< -o $@
 
 clean: 
 	$(RM) $(OBJS) $(BONUS_OBJS)
@@ -39,4 +33,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
