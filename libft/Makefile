@@ -35,11 +35,21 @@ $(NAME) : $(OBJS)
 	@echo "objects were created"
 	@echo "libft.a created successfully"
 
+<<<<<<< HEAD
 %.o : %.c libft.h Makefile
 	gcc -c $(CFLAGS) $< -o $@
 
 bonus: $(BONUS_OBJS)
 	@ar crs $(NAME) $^
+=======
+%.o : %.c libft.h
+	gcc -c $(CFLAGS) $< -o $@
+
+bonus: $(BONUS_OBJS) $(OBJS)
+	@ar crs $(NAME) $^
+	@echo "bonus objects were created"
+	@echo "bonus functions added to libft.a"
+>>>>>>> curro
 
 clean: 
 	@$(RM) $(OBJS) $(BONUS_OBJS)

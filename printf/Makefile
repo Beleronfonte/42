@@ -6,43 +6,31 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/06/03 11:39:44 by ofernand         ###   ########.fr        #
+#    Updated: 2024/07/08 16:29:02 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprint.a
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SOURCES = 
-BONUS_SOURCES = 
+SOURCES = chars_and_base10.c ft_printf.c hex_base.c 
 
 all: $(NAME)
 
 OBJS = $(SOURCES:.c=.o)
 
-BONUS_OBJS = $(BONUS_SOURCES:.c=.o)
-
 $(NAME) : $(OBJS)
-	@ar crs $(NAME) $(OBJS)
-	@echo "objects were created"
-	@echo "$(NAME) created successfully"
+	ar crs $(NAME) $^
 
-%.o : %.c
-	@cc -c $(CFLAGS) $< -o $@
-
-bonus: $(BONUS_OBJS)
-	@ ar crs $(NAME) $^
-	@echo "bonus objects were created"
-	@echo "bonus functions added to $(NAME)"
+%.o : %.c ft_printf.h Makefile
+	gcc -c $(CFLAGS) $< -o $@
 
 clean: 
-	@$(RM) $(OBJS) $(BONUS_OBJS)
-	@echo "objects removed"
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@echo "everything is clean now"
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
