@@ -54,7 +54,7 @@ int	ft_ptr_dir(void *ptr)
 	int	count;
 
 	if (!ptr)
-		return (ft_putstr("(NULL)"));
+		return (ft_putstr("(nil)"));
 	ft_putstr("0x");
 	count = ft_ltohex((unsigned long) ptr, "0123456789abcdef");
 	return (count + 2);
