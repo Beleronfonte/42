@@ -27,4 +27,6 @@ size_t	ft_strlen(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int n);
 char	*ft_calloc(size_t n, size_t size);
+size_t	ft_strlcat(char *dest, char *src, size_t size);
+size_t	ft_strlcpy(char *dest, char *src, size_t size);
 #endif

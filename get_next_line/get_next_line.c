@@ -12,6 +12,23 @@
 
 #include "get_next_line.h"
 
+char	*ft_calloc(size_t n, size_t size)
+{
+	char	*ptr;
+	size_t	i;
+
+	ptr = (char *)malloc(n * size);
+	if (!ptr)
+		return (0);
+	i = 0;
+	while (i < n * size)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}
+
 static char	*ft_trim_line(char *buffer)
 {
 	char	*line;
@@ -23,6 +40,8 @@ static char	*ft_trim_line(char *buffer)
 	while (buffer[i] != '\n' && buffer[i])
 		i++;
 	line = ft_calloc(sizeof(char), i + 2);
+	if (!line)
+		return (NULL);
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
