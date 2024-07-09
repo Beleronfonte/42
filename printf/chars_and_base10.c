@@ -22,6 +22,8 @@ int	ft_putstr(char *s)
 {
 	int	i;
 
+	if (!s)
+		return (ft_putstr("(NULL)"));
 	i = 0;
 	while (s[i])
 	{

@@ -19,7 +19,9 @@ int	print_and_count(const char *str, va_list args)
 	if (*str == '%')
 	{
 		str++;
-		if (*str == 'c' || *str == 's')
+		if (*str == 'c')
+			count = ft_putchar(va_arg(args, int));
+ 		else if (*str == 's')
 			count = ft_putstr(va_arg(args, char *));
 		else if (*str == 'i' || *str == 'd')
 			count = ft_itoa_for_i(va_arg(args, int));
