@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:02:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/06/01 12:48:46 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:47:32 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*str;
 	size_t	len1;
 	size_t	len2;
+
 	if (!s2)
 		return (NULL);
 	len1 = ft_strlen(s1);

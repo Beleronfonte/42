@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:40:08 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/08 16:36:25 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/09 15:49:07 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	print_and_count(const char *str, va_list args)
 		str++;
 		if (*str == 'c')
 			count = ft_putchar(va_arg(args, int));
- 		else if (*str == 's')
+		else if (*str == 's')
 			count = ft_putstr(va_arg(args, char *));
 		else if (*str == 'i' || *str == 'd')
 			count = ft_itoa_for_i(va_arg(args, int));
