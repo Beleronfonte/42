@@ -6,7 +6,7 @@
 #    By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/23 11:41:46 by ofernand          #+#    #+#              #
-#    Updated: 2024/07/08 16:57:40 by ofernand         ###   ########.fr        #
+#    Updated: 2024/07/09 15:57:52 by ofernand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 	gcc -c $(CFLAGS) $< -o $@
 
 clean: 
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) 
 
 fclean: clean
 	$(RM) $(NAME)
