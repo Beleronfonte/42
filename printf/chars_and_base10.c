@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 12:22:51 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/08 16:35:05 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/26 03:27:52 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
@@ -27,7 +28,8 @@ int	ft_putstr(char *s)
 	i = 0;
 	while (s[i])
 	{
-		ft_putchar(s[i]);
+		if (ft_putchar(s[i]) == -1)
+			return (-1);
 		i++;
 	}
 	return (i);
