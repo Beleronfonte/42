@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 16:02:53 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/11 16:03:21 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/07/26 06:04:05 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@ int	main(int ac, char **av, char **envp)
 {
 	int pid;
 	int	pipefd[2];
+	char **path;
 
+	if (ac != 5)
+		exit(EXIT_FAILURE); //TODO: definir error de argumentos insuficientes o en exceso
+	check_files(av);
+	path = get_path(envp);
+	check_cmds(av, path);
 	if(pipe(pipefd)) //pipefd[0] -> read || pipefd[1] -> write (meto pro write y sale por read)
 		return (error_msg()); // si pipe ha ido bien devuelve 0, si ha ido mal, -1
-	
-	
 	pid= fork();
 
     // instrucciones que tanto el padre como el hijo harán
