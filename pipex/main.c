@@ -16,43 +16,30 @@ int	main(int ac, char **av, char **envp)
 	int pid;
 	int	pipefd[2];
 	char **path;
+	char *cmds[2];
 
 	if (ac != 5)
-		exit(EXIT_FAILURE); //TODO: definir error de argumentos insuficientes o en exceso
+		exit(EXIT_FAILURE); //TODO: definir error de "wrong number of arguments"
+							
 	check_files(av);
 	path = get_path(envp);
-	check_cmds(av, path);
-	if(pipe(pipefd)) //pipefd[0] -> read || pipefd[1] -> write (meto pro write y sale por read)
+	cmds[0] = check_cmd(av[2], path); //habra que liberarlos, no?
+	cmds[1] = check_cmd(av[3], path);
+	if(pipe(pipefd)) //pipefd[0] -> read || pipefd[1] -> write (meto por write y sale por read)
 		return (error_msg()); // si pipe ha ido bien devuelve 0, si ha ido mal, -1
 	pid= fork();
-
-    // instrucciones que tanto el padre como el hijo harán
-
 	if (pid < 0)
-		return (error_msg()); //fallo del fork
-    if (pid = 0)
+		return (error_msg()); //TODO:fallo del fork
+    if (pid = 0) // instrucciones que solo el proceso hijo hará
     {
-        // instrucciones que solo el proceso hijo hará
-		// primero cerramos el lado del pipe que no usará
-		close(pipefd[0]);
+		close(pipefd[1]);// primero cerramos el lado del pipe que no usará: escritura
+		dup2(pipefd[0], 0); //hago que el STDIN sea el file1 a traves del pipe
+		dup2(av[4], 1); //hago que el STDOUT sea el file2
     }
-    else
+    else // instrucciones que solo el proceso padre hará
     {
-        // instrucciones que solo el proceso padre hará
-		// primero cerramos el lado del pipe que no usará
-		close(pipefd[1]);
+		close(pipefd[0]);// primero cerramos el lado del pipe que no usará
+		dup2(av[1], 0); //hago que el STDIN sea el file1
+		dup2(pipefd[1], 1); //hago que el STDOUT sea el pipe
     }
 }
-
-
-/*
- PSEUDOCODIGO
-
- -comprobar que file 1 existe
- 	*si no, error "file1: No such file or directory"
- - comprobar que file 2 existe
- 	*si no, crearlo y continuar.
- - pipe para crear un canal de comunicación entre padre e hijo (se tiene que crear antes de dividir)
- - fork para separar entre padre e hijo
- -
- *

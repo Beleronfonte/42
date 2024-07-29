@@ -14,10 +14,10 @@
 
 void	check_files(char **av)
 {
-	if (av[1] !exist)
+	if (open(av[1], O_RDONLY) < 0)
 		exit(error_msg()); //TODO
-	if (av[4] !exist)
-		//TODO: touch av[4]
+	if (open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644) < 0)
+		exit(error_msg()); //TODO
 }
 
 char **get_path(char **envp)
@@ -39,8 +39,21 @@ char **get_path(char **envp)
 	return (path);
 }
 
-void	check_cmds(char **av, char **path) 
-{
+char	*check_cmd(char *cmd_tested, char **path) 
+{	
+	char	*tmp;
+
+	while (*path)
+	{
+		tmp = ft_strjoin(*path, "/");
+		cmd = ft_strjoin(tmp, cmd_tested);
+		free(tmp);
+		if (access(cmd, X_OK) == 0)
+			return (cmd);
+		path++;
+		free(cmd);
+	}
+	exit(error_msg(); //cmd_tested do not exist
 }
 
 int error_msg()
