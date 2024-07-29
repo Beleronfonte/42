@@ -12,12 +12,17 @@
 
 #include "pipex.h"
 
-void	check_files(char **av)
+void	check_files(char **av, int *fd)
 {
-	if (open(av[1], O_RDONLY) < 0)
-		exit(error_msg()); //TODO
-	if (open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644) < 0)
-		exit(error_msg()); //TODO
+	fd[0] = open(av[1], O_RDONLY);
+	if (fd[0] < 0)
+		exit(1);
+		//exit(error_msg()); //TODO
+	fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
+		if (fd[1] < 0)
+		exit(1);
+		//exit(error_msg()); //TODO
+	return ;
 }
 
 char **get_path(char **envp)
@@ -31,7 +36,7 @@ char **get_path(char **envp)
 	{
 		if (ft_strncmp(envp[i],"PATH", 4) == 0)
 		{
-			path = ft_split(&envp[i][5], ':')
+			path = ft_split(&envp[i][5], ':');
 			break ;
 		}
 		i++;
@@ -42,6 +47,7 @@ char **get_path(char **envp)
 char	*check_cmd(char *cmd_tested, char **path) 
 {	
 	char	*tmp;
+	char	*cmd;
 
 	while (*path)
 	{
@@ -53,10 +59,11 @@ char	*check_cmd(char *cmd_tested, char **path)
 		path++;
 		free(cmd);
 	}
-	exit(error_msg(); //cmd_tested do not exist
+	exit(1);
+	//exit(error_msg(); //cmd_tested do not exist
 }
 
-int error_msg()
+/*int error_msg()
 {
 	lorem ipsum
-}
+}*/
