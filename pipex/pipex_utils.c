@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 16:04:36 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/26 05:55:26 by ofernand         ###   ########.fr       */
+/*   Created: 2024/07/31 11:00:27 by ofernand          #+#    #+#             */
+/*   Updated: 2024/07/31 12:08:27 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	check_files(char **av, int *fd)
+void	check_files(char **av, int *fd)//faltan access?
 {
 	fd[0] = open(av[1], O_RDONLY);
 	if (fd[0] < 0)
-		exit(1);
-		//exit(error_msg()); //TODO
+		error_msg(errno, av[1]);
 	fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
-		if (fd[1] < 0)
-		exit(1);
-		//exit(error_msg()); //TODO
+	if (fd[1] < 0)
+		error_msg(errno, av[4]);
 	return ;
 }
 
@@ -59,11 +57,14 @@ char	*check_cmd(char *cmd_tested, char **path)
 		path++;
 		free(cmd);
 	}
-	exit(1);
-	//exit(error_msg(); //cmd_tested do not exist
+	error_msg(errno, cmd_tested); 
+	return (NULL);
 }
 
-/*int error_msg()
+void error_msg(int error, char *str)
 {
-	lorem ipsum
-}*/
+	//error_printf("pipex: %s", str);
+	perror("pipex");
+	str--;
+	exit (error);
+}

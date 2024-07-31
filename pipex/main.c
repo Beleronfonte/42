@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 16:02:53 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/26 06:04:05 by ofernand         ###   ########.fr       */
+/*   Created: 2024/07/31 11:00:39 by ofernand          #+#    #+#             */
+/*   Updated: 2024/07/31 12:02:25 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
 // ./pipex file1 cmd1 cmd2 file2
 int	main(int ac, char **av, char **envp)
 {
@@ -21,7 +22,7 @@ int	main(int ac, char **av, char **envp)
 	int		fd[2];
 
 	if (ac != 5)
-	//	exit(EXIT_FAILURE); //TODO: definir error de "wrong number of arguments"
+	//	exit(error_msg(INVALID_ARGS); //TODO: definir error de "wrong number of arguments"
 		exit(1);
 	check_files(av, fd);
 	path = get_path(envp);
@@ -33,19 +34,19 @@ int	main(int ac, char **av, char **envp)
 	pid= fork();
 	if (pid < 0)
 		exit(1);	
-		//return (error_msg()); //TODO:fallo del fork
-    if (pid = 0) // instrucciones que solo el proceso hijo hará
+		//return (error_msg(FORK_ERROR)); //TODO:fallo del fork
+    if (pid == 0) // instrucciones que solo el proceso hijo hará
     {
 		close(pipefd[1]);// primero cerramos el lado del pipe que no usará: escritura
 		dup2(pipefd[0], 0); //hago que el STDIN sea el file1 a traves del pipe
 		dup2(fd[1], 1); //hago que el STDOUT sea el file2
-		execve(cmd[1], av[3], envp);
+		execve(cmds[1], &av[3], envp);
     }
     else // instrucciones que solo el proceso padre hará
     {
 		close(pipefd[0]);// primero cerramos el lado del pipe que no usará
 		dup2(fd[0], 0); //hago que el STDIN sea el file1
 		dup2(pipefd[1], 1); //hago que el STDOUT sea el pipe
-		execve(cmd[0], av[2], envp);
+		execve(cmds[0], &av[2], envp);
     }
 }
