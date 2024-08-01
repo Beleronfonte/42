@@ -13,6 +13,8 @@
 #include "pipex.h"
 
 // ./pipex file1 cmd1 cmd2 file2
+// pipefd[0] -> read || pipefd[1] -> write (meto por write y sale por read)
+// pid = 0 es el hijo, el padre hace las acciones de else.
 int	main(int ac, char **av, char **envp)
 {
 	int		pid;
@@ -22,31 +24,28 @@ int	main(int ac, char **av, char **envp)
 	int		fd[2];
 
 	if (ac != 5)
-	//	exit(error_msg(INVALID_ARGS); //TODO: definir error de "wrong number of arguments"
-		exit(1);
+		error_msg(-1, "wrong number of arguments\n", NULL);
 	check_files(av, fd);
 	path = get_path(envp);
 	cmds[0] = check_cmd(av[2], path); //habra que liberarlos, no?
 	cmds[1] = check_cmd(av[3], path);
-	if(pipe(pipefd)) //pipefd[0] -> read || pipefd[1] -> write (meto por write y sale por read)
-		return (0);
-		//return (error_msg()); // si pipe ha ido bien devuelve 0, si ha ido mal, -1
+	if(pipe(pipefd))
+		error_msg(errno, NULL, NULL);
 	pid= fork();
 	if (pid < 0)
-		exit(1);	
-		//return (error_msg(FORK_ERROR)); //TODO:fallo del fork
-    if (pid == 0) // instrucciones que solo el proceso hijo hará
+		error_msg(errno, NULL, NULL);
+    if (pid == 0)
     {
-		close(pipefd[1]);// primero cerramos el lado del pipe que no usará: escritura
-		dup2(pipefd[0], 0); //hago que el STDIN sea el file1 a traves del pipe
-		dup2(fd[1], 1); //hago que el STDOUT sea el file2
-		execve(cmds[1], &av[3], envp);
+		close(pipefd[1]);
+		dup2(pipefd[0], 0);
+		dup2(fd[1], 1);
+		//execve(cmds[1], &av[4], envp);
     }
-    else // instrucciones que solo el proceso padre hará
+    else
     {
-		close(pipefd[0]);// primero cerramos el lado del pipe que no usará
-		dup2(fd[0], 0); //hago que el STDIN sea el file1
-		dup2(pipefd[1], 1); //hago que el STDOUT sea el pipe
+		close(pipefd[0]);
+		dup2(fd[0], 0);
+		dup2(pipefd[1], 1);
 		execve(cmds[0], &av[2], envp);
     }
 }

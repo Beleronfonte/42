@@ -16,10 +16,10 @@ void	check_files(char **av, int *fd)//faltan access?
 {
 	fd[0] = open(av[1], O_RDONLY);
 	if (fd[0] < 0)
-		error_msg(errno, av[1]);
+		error_msg(errno, NULL, av[1]);
 	fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
 	if (fd[1] < 0)
-		error_msg(errno, av[4]);
+		error_msg(errno, NULL, av[4]);
 	return ;
 }
 
@@ -57,14 +57,19 @@ char	*check_cmd(char *cmd_tested, char **path)
 		path++;
 		free(cmd);
 	}
-	error_msg(errno, cmd_tested); 
+	error_msg(127, "command not found",cmd_tested); 
 	return (NULL);
 }
 
-void error_msg(int error, char *str)
+void error_msg(int error, char *msg, char *file)
 {
-	//error_printf("pipex: %s", str);
-	perror("pipex");
-	str--;
+	if (msg && !file)
+		error_print("pipex: %s\n", msg);
+	if (file && !msg)
+		error_print("pipex: %s: %s\n", file, strerror(error));
+	if (msg && file)
+		error_print("pipex: %s: %s\n", file, msg);
+	else 
+		perror("pipex");
 	exit (error);
 }

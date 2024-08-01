@@ -20,6 +20,8 @@
 # include <sys/wait.h>
 # include <fcntl.h>
 # include <errno.h>
+# include <stddef.h>
+# include <stdarg.h>
 
 # define	FILE_NOT_FOUND	-1
 # define	CMD_NOT_FOUND	127
@@ -38,5 +40,6 @@ int		ft_strlcpy(char *dest, char *src, int size);
 char	*ft_strjoin(char *s1, char *s2);
 char 	**ft_split(char *str, char c);
 int		ft_strncmp(char *s1, char *s2, int n);
-void	error_msg(int error, char *str);
+void	error_msg(int error, char *msg, char *file);
+int		error_print(char const *str, ...);
 #endif
