@@ -14,12 +14,16 @@
 
 void	check_files(char **av, int *fd)//faltan access?
 {
+	//if (access(av[1], R_OK))
+	//	error_msg(errno, NULL, av[1]);
 	fd[0] = open(av[1], O_RDONLY);
 	if (fd[0] < 0)
 		error_msg(errno, NULL, av[1]);
 	fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
 	if (fd[1] < 0)
 		error_msg(errno, NULL, av[4]);
+	//if (access(av[4], R_OK|W_OK))
+	//	error_msg(errno, NULL, av[1]);
 	return ;
 }
 
@@ -35,6 +39,8 @@ char **get_path(char **envp)
 		if (ft_strncmp(envp[i],"PATH", 4) == 0)
 		{
 			path = ft_split(&envp[i][5], ':');
+			if (!path)
+				error_msg(errno, NULL, NULL);
 			break ;
 		}
 		i++;
@@ -57,6 +63,7 @@ char	*check_cmd(char *cmd_tested, char **path)
 		path++;
 		free(cmd);
 	}
+	free_all(path);
 	error_msg(127, "command not found",cmd_tested); 
 	return (NULL);
 }
@@ -65,9 +72,9 @@ void error_msg(int error, char *msg, char *file)
 {
 	if (msg && !file)
 		error_print("pipex: %s\n", msg);
-	if (file && !msg)
+	else if (file && !msg)
 		error_print("pipex: %s: %s\n", file, strerror(error));
-	if (msg && file)
+	else if (msg && file)
 		error_print("pipex: %s: %s\n", file, msg);
 	else 
 		perror("pipex");

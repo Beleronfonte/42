@@ -13,14 +13,14 @@
 NAME = pipex
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
-SOURCES =
+SOURCES = main.c pipex_utils.c libft_utils_1.c libft_utils_2.c error_print.c\
 
 all: $(NAME)
 
 OBJS = $(SOURCES:.c=.o)
 
 $(NAME): $(OBJS)
-	ar crs $(NAME) $^
+	gcc $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o:%.c pipex.h Makefile
 	gcc -c $(CFLAGS) $< -o $@

@@ -42,4 +42,5 @@ char 	**ft_split(char *str, char c);
 int		ft_strncmp(char *s1, char *s2, int n);
 void	error_msg(int error, char *msg, char *file);
 int		error_print(char const *str, ...);
+char	**free_all(char **ptr);
 #endif

@@ -48,7 +48,7 @@ static char	*get_word(char *str, int start, int stop)
 	return (word);
 }
 
-static char	**free_all(char **ptr)
+char	**free_all(char **ptr)
 {
 	int	i;
 
