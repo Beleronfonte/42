@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:00:39 by ofernand          #+#    #+#             */
-/*   Updated: 2024/08/07 17:11:36 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:38:30 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int ac, char **av, char **envp)
 		close(pipefd[1]);
 		dup2(fd[1], 1);
 		dup2(pipefd[0], 0);
-		splited = ft_split(av[4], ' ');
+		splited = ft_split(av[3], ' ');
 		if (!splited)
 		{
 			free_all(cmds);
