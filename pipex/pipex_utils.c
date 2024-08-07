@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:00:27 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/31 12:08:27 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/08/07 17:24:16 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,24 @@ char	*check_cmd(char *cmd_tested, char **path)
 {	
 	char	*tmp;
 	char	*cmd;
+	char	**cmd_arg;
 
+	cmd_arg = ft_split(cmd_tested, ' ');
 	while (*path)
 	{
 		tmp = ft_strjoin(*path, "/");
-		cmd = ft_strjoin(tmp, cmd_tested);
+		cmd = ft_strjoin(tmp, cmd_arg[0]);
 		free(tmp);
 		if (access(cmd, X_OK) == 0)
+		{
+			free_all(cmd_arg);
 			return (cmd);
+		}
 		path++;
 		free(cmd);
 	}
 	free_all(path);
+	free_all(cmd_arg);
 	error_msg(127, "command not found",cmd_tested); 
 	return (NULL);
 }
