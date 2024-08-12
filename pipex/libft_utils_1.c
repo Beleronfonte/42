@@ -6,7 +6,7 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:56:17 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/31 10:56:38 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/08/12 18:33:11 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	ft_strlcpy(char *dest, char *src, int size)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	int	len1;
-	int	len2;
+	int		len1;
+	int		len2;
 
 	if (!s1 || !s2)
 		return (NULL);

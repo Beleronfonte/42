@@ -6,28 +6,24 @@
 /*   By: ofernand <ofernand@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 11:00:27 by ofernand          #+#    #+#             */
-/*   Updated: 2024/08/07 17:24:16 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:47:39 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	check_files(char **av, int *fd)//faltan access?
+t_list	check_files(char **av, t_list aux)
 {
-	//if (access(av[1], R_OK))
-	//	error_msg(errno, NULL, av[1]);
-	fd[0] = open(av[1], O_RDONLY);
-	if (fd[0] < 0)
+	aux.fd[0] = open(av[1], O_RDONLY);
+	if (aux.fd[0] < 0)
 		error_msg(errno, NULL, av[1]);
-	fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
-	if (fd[1] < 0)
+	aux.fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
+	if (aux.fd[1] < 0)
 		error_msg(errno, NULL, av[4]);
-	//if (access(av[4], R_OK|W_OK))
-	//	error_msg(errno, NULL, av[1]);
-	return ;
+	return (aux);
 }
 
-char **get_path(char **envp)
+char	**get_path(char **envp)
 {
 	char	**path;
 	int		i;
@@ -36,7 +32,7 @@ char **get_path(char **envp)
 	i = 0;
 	while (envp[i])
 	{
-		if (ft_strncmp(envp[i],"PATH", 4) == 0)
+		if (ft_strncmp(envp[i], "PATH", 4) == 0)
 		{
 			path = ft_split(&envp[i][5], ':');
 			if (!path)
@@ -48,12 +44,14 @@ char **get_path(char **envp)
 	return (path);
 }
 
-char	*check_cmd(char *cmd_tested, char **path) 
-{	
+char	*check_cmd(char *cmd_tested, char **path)
+{
 	char	*tmp;
 	char	*cmd;
 	char	**cmd_arg;
 
+	if (!path)
+		error_msg(-1, "test", NULL);
 	cmd_arg = ft_split(cmd_tested, ' ');
 	while (*path)
 	{
@@ -70,11 +68,11 @@ char	*check_cmd(char *cmd_tested, char **path)
 	}
 	free_all(path);
 	free_all(cmd_arg);
-	error_msg(127, "command not found",cmd_tested); 
+	error_msg(128, "command not found", cmd_tested);
 	return (NULL);
 }
 
-void error_msg(int error, char *msg, char *file)
+void	error_msg(int error, char *msg, char *file)
 {
 	if (msg && !file)
 		error_print("pipex: %s\n", msg);
@@ -82,7 +80,7 @@ void error_msg(int error, char *msg, char *file)
 		error_print("pipex: %s: %s\n", file, strerror(error));
 	else if (msg && file)
 		error_print("pipex: %s: %s\n", file, msg);
-	else 
+	else
 		perror("pipex");
 	exit (error);
 }
