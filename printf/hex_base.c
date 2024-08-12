@@ -6,13 +6,13 @@
 /*   By: ofernand <ofernand@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 12:22:51 by ofernand          #+#    #+#             */
-/*   Updated: 2024/07/08 16:37:58 by ofernand         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:01:41 by ofernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	len_hex(long int n)
+static int	len_hex(unsigned long int n)
 {
 	int	len;
 
