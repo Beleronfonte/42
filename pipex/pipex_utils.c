@@ -66,9 +66,7 @@ char	*check_cmd(char *cmd_tested, char **path)
 		path++;
 		free(cmd);
 	}
-	free_all(path);
 	free_all(cmd_arg);
-	error_msg(128, "command not found", cmd_tested);
 	return (NULL);
 }
 

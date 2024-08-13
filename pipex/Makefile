@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = pipex
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 SOURCES = main.c pipex_utils.c libft_utils_1.c libft_utils_2.c error_print.c\
 
