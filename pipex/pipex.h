@@ -38,8 +38,8 @@ typedef struct s_list
 }				t_list;
 
 t_list	check_files(char **av, t_list aux);
-char	**get_path(char **envp);
-char	*check_cmd(char *cmd_tested, char **path);
+char	**get_path(t_list aux, char **envp);
+char	*check_cmd(t_list aux, char *cmd_tested, char **path);
 int		ft_strlen(char *str);
 int		ft_strlcat(char *dest, char *src, int size);
 int		ft_strlcpy(char *dest, char *src, int size);
@@ -49,4 +49,5 @@ int		ft_strncmp(char *s1, char *s2, int n);
 void	error_msg(int error, char *msg, char *file);
 int		error_print(char const *str, ...);
 char	**free_all(char **ptr);
+void	close_and_free(t_list aux, char **to_free);
 #endif

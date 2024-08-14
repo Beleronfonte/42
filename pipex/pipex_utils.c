@@ -14,16 +14,19 @@
 
 t_list	check_files(char **av, t_list aux)
 {
-	aux.fd[0] = open(av[1], O_RDONLY);
-	if (aux.fd[0] < 0)
-		error_msg(errno, NULL, av[1]);
 	aux.fd[1] = open(av[4], O_TRUNC | O_CREAT | O_RDWR, 0644);
 	if (aux.fd[1] < 0)
 		error_msg(errno, NULL, av[4]);
+	aux.fd[0] = open(av[1], O_RDONLY);
+	if (aux.fd[0] < 0)
+	{
+		close(aux.fd[1]);
+		error_msg(errno, NULL, av[1]);
+	}
 	return (aux);
 }
 
-char	**get_path(char **envp)
+char	**get_path(t_list aux, char **envp)
 {
 	char	**path;
 	int		i;
@@ -36,7 +39,11 @@ char	**get_path(char **envp)
 		{
 			path = ft_split(&envp[i][5], ':');
 			if (!path)
+			{
+				close(aux.fd[0]);
+				close(aux.fd[1]);
 				error_msg(errno, NULL, NULL);
+			}
 			break ;
 		}
 		i++;
@@ -44,14 +51,17 @@ char	**get_path(char **envp)
 	return (path);
 }
 
-char	*check_cmd(char *cmd_tested, char **path)
+char	*check_cmd(t_list aux, char *cmd_tested, char **path)
 {
 	char	*tmp;
 	char	*cmd;
 	char	**cmd_arg;
 
 	if (!path)
-		error_msg(-1, "test", NULL);
+	{
+		close_and_free(aux, NULL);
+		error_msg(-1, "not PATH found", NULL);
+	}
 	cmd_arg = ft_split(cmd_tested, ' ');
 	while (*path)
 	{
@@ -81,4 +91,18 @@ void	error_msg(int error, char *msg, char *file)
 	else
 		perror("pipex");
 	exit (error);
+}
+
+void	close_and_free(t_list aux, char **to_free)
+{
+	close(aux.fd[0]);
+	close(aux.fd[1]);
+	close(aux.pipefd[0]);
+	close(aux.pipefd[1]);
+	if (to_free)
+	{
+		free(aux.cmds[0]);
+		free(aux.cmds[1]);
+		free_all(to_free);
+	}
 }

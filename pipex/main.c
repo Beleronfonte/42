@@ -23,15 +23,19 @@ static void	ft_father(t_list aux, char **av, char **envp)
 	splited = ft_split(av[2], ' ');
 	if (!splited)
 	{
-		free(aux.cmds[0]);
-		free(aux.cmds[1]);
+		close_and_free(aux, NULL);
 		error_msg(-1, "ft_split failed", NULL);
 	}
 	close(aux.pipefd[1]);
 	close(aux.fd[0]);
 	close(aux.fd[1]);
-	if(execve(aux.cmds[0], splited, envp) == -1)
-		error_print("pipex: %s: command not found\n", av[2]);
+	if (aux.cmds[0] == NULL)
+	{
+		error_print("pipex: %s: command not found\n", splited[0]);
+		free_all(splited);
+	}
+	else
+		execve(aux.cmds[0], splited, envp);
 }
 
 static void	ft_child(t_list aux, char **av, char **envp)
@@ -44,15 +48,19 @@ static void	ft_child(t_list aux, char **av, char **envp)
 	splited = ft_split(av[3], ' ');
 	if (!splited)
 	{
-		free(aux.cmds[0]);
-		free(aux.cmds[1]);
+		close_and_free(aux, NULL);
 		error_msg(-1, "ft_split failed", NULL);
 	}
 	close(aux.pipefd[0]);
 	close(aux.fd[0]);
 	close(aux.fd[1]);
-	if (execve(aux.cmds[1], splited, envp) == -1)
-		error_print("pipex: %s: command not found\n", av[3]);
+	if (aux.cmds[1] == NULL)
+	{
+		error_print("pipex: %s: command not found\n", splited[0]);
+		free_all(splited);
+	}
+	else
+		execve(aux.cmds[1], splited, envp);
 }
 
 int	main(int ac, char **av, char **envp)
@@ -64,21 +72,18 @@ int	main(int ac, char **av, char **envp)
 	if (ac != 5)
 		error_msg(-1, "wrong number of arguments\n", NULL);
 	aux = check_files(av, aux);
-	path = get_path(envp);
-	aux.cmds[0] = check_cmd(av[2], path);
-	aux.cmds[1] = check_cmd(av[3], path);
+	path = get_path(aux, envp);
+	aux.cmds[0] = check_cmd(aux, av[2], path);
+	aux.cmds[1] = check_cmd(aux, av[3], path);
 	if (pipe(aux.pipefd))
 		error_msg(errno, NULL, NULL);
 	pid = fork();
 	if (pid < 0)
 		error_msg(errno, NULL, NULL);
 	if (pid == 0)
-		ft_father(aux, av, envp);
-	else
 		ft_child(aux, av, envp);
-	free(aux.cmds[0]);
-	free(aux.cmds[1]);
-	free_all(path);
-	close(aux.fd[1]);
-	close(aux.fd[2]);
+	else
+		ft_father(aux, av, envp);
+	close_and_free(aux, path);
+	return (0);
 }
